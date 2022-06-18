@@ -5,7 +5,6 @@ import useFetch from './useFetch';
 import NavBar from './NavBar';
 import Result from './Result';
 
-
 export default function Header() {
     const [search, setSearch] = useState('nature');
     const [results, setResults] = useState('10');
@@ -19,7 +18,6 @@ export default function Header() {
             <Result setResults={setResults} results={results} />
 
             <VideoList fetchVideo={data} />
-
         </Box>
     );
 }

@@ -5,7 +5,7 @@ function useFetch(url) {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const [tags, setTags] = useState([]);
 
     useEffect(() => {
         const fetchVideoFromUrl = async () => {
@@ -30,7 +30,7 @@ function useFetch(url) {
         });
     }, [url]);
 
-    return { data, isLoading, error };
+    return { data, isLoading, error, tags };
 }
 
 export default useFetch;

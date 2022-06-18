@@ -4,13 +4,14 @@ import VideoList from './VideoList';
 import useFetch from './useFetch';
 import NavBar from './NavBar';
 import Result from './Result';
-
+import CheckList from './CheckList';
+import Tags from './Tags';
 
 export default function Header() {
     const [search, setSearch] = useState('nature');
     const [results, setResults] = useState('10');
 
-    const { data } = useFetch(`https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?&numResults=${results}&q=${search}`);
+    const { data, tags } = useFetch(`https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentVideos?&numResults=${results}&q=${search}`);
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -20,6 +21,7 @@ export default function Header() {
 
             <VideoList fetchVideo={data} />
 
+            <CheckList tags={tags} />
         </Box>
     );
 }

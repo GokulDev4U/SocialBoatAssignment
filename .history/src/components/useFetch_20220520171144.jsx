@@ -5,13 +5,17 @@ function useFetch(url) {
     const [data, setData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const [tags, setTags] = useState([]);
 
     useEffect(() => {
         const fetchVideoFromUrl = async () => {
             try {
                 const response = await axios.get(url);
-                setData(response?.data.results);
+                setData(response?.data.results.forEach(dict => {
+                    for (let tag in dict) {
+                        setTags(dict[tag]);
+                    }
+                }));
                 setIsLoading(false);
                 setError(null);
                 console.log(response.data);
@@ -23,14 +27,14 @@ function useFetch(url) {
 
         const time = setTimeout(() => {
             fetchVideoFromUrl();
-        }, 1000);
+        }, 5000);
 
         return (() => {
             clearTimeout(time);
         });
     }, [url]);
 
-    return { data, isLoading, error };
+    return { data, isLoading, error, tags };
 }
 
 export default useFetch;

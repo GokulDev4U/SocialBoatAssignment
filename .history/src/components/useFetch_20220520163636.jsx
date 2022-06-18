@@ -6,7 +6,6 @@ function useFetch(url) {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
 
-
     useEffect(() => {
         const fetchVideoFromUrl = async () => {
             try {
@@ -23,7 +22,7 @@ function useFetch(url) {
 
         const time = setTimeout(() => {
             fetchVideoFromUrl();
-        }, 1000);
+        }, 5000);
 
         return (() => {
             clearTimeout(time);

@@ -4,7 +4,8 @@ import VideoList from './VideoList';
 import useFetch from './useFetch';
 import NavBar from './NavBar';
 import Result from './Result';
-
+import CheckList from './CheckList';
+import Tags from './Tags';
 
 export default function Header() {
     const [search, setSearch] = useState('nature');

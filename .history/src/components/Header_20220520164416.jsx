@@ -4,7 +4,7 @@ import VideoList from './VideoList';
 import useFetch from './useFetch';
 import NavBar from './NavBar';
 import Result from './Result';
-
+import CheckList from './CheckList';
 
 export default function Header() {
     const [search, setSearch] = useState('nature');
@@ -20,6 +20,7 @@ export default function Header() {
 
             <VideoList fetchVideo={data} />
 
+            <CheckList data={data} />
         </Box>
     );
 }
